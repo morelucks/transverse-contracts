@@ -11,7 +11,12 @@ contract Wallet {
         address token;
     }
 
-    function create_world_id() external {
+    constructor() {
+        require(msg.sender != address(0), "zero address found");
+        owner = msg.sender;
+    }
+
+    function createWorldId() external {
 
     }
 
@@ -19,11 +24,11 @@ contract Wallet {
 
     }
 
-    function record_transaction_history() private {
+    function recordTransactionHistory() private {
 
     }
 
-    function get_transaction_history() external view returns (Transaction[] memory) {
+    function getTransactionHistory() external view returns (Transaction[] memory) {
 
     }
 }
