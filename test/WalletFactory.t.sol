@@ -12,8 +12,6 @@ contract WalletFactoryTest is Test {
     }
 
     function test_CreateWallet() public {
-        address caller = address('caller');
-
         factory.createWallet();
 
         assertEq(factory.getWalletClones().length, 1);
