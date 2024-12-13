@@ -12,9 +12,9 @@ contract Wallet {
         address token;
     }
 
-    constructor() {
+    constructor(address _owner) {
         require(msg.sender != address(0), "zero address found");
-        owner = msg.sender;
+        owner = _owner;
     }
 
     function createWorldId() external {
