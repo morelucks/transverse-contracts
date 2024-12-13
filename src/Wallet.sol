@@ -12,24 +12,37 @@ contract Wallet {
         address token;
     }
 
+    modifier onlyOwner {
+        require(msg.sender == owner, "not owner");
+        _;
+    }
+
     constructor(address _owner) {
         require(msg.sender != address(0), "zero address found");
         owner = _owner;
     }
 
-    function createWorldId() external {
+    function createWorldId() onlyOwner external {
 
     }
 
-    function transfer() external {
+    function transfer() onlyOwner external {
 
     }
 
-    function recordTransactionHistory() private {
-
-    }
+    //////////////////////////////////////////////
+    //             View Functions              //
+    ////////////////////////////////////////////
 
     function getTransactionHistory() external view returns (Transaction[] memory) {
+
+    }
+
+    ////////////////////////////////////////////////
+    //             Private Function              //
+    //////////////////////////////////////////////
+
+    function recordTransactionHistory() private {
 
     }
 }
